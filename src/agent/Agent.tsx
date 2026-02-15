@@ -100,24 +100,24 @@ export const Agent = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl h-[90vh] flex flex-col font-sans bg-dark-850 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-neon-cyan/20 animate-slide-up relative" style={{ backgroundColor: 'rgba(19, 28, 62, 0.4)' }}>
+    <div className="w-full h-screen md:h-[90vh] md:max-w-4xl flex flex-col font-sans bg-dark-850 backdrop-blur-xl md:rounded-2xl shadow-2xl overflow-hidden border border-neon-cyan/20 animate-slide-up relative" style={{ backgroundColor: 'rgba(19, 28, 62, 0.4)' }}>
       {/* Neon glow effect */}
       <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0, 217, 255, 0.05), rgba(255, 0, 110, 0.05))' }}></div>
       
       {/* Header with New Chat button */}
-      <div className="bg-dark-850 px-8 py-6 text-center shadow-lg relative border-b border-neon-cyan/20 flex items-center justify-between">
+      <div className="bg-dark-850 px-3 sm:px-6 md:px-8 py-4 md:py-6 text-center shadow-lg relative border-b border-neon-cyan/20 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="absolute inset-0 blur-2xl opacity-50" style={{ background: 'linear-gradient(to right, rgba(0, 217, 255, 0.1), rgba(255, 0, 110, 0.1))' }}></div>
         
-        <div className="flex-1">
-          <h1 className="text-4xl font-bold m-0 mb-2 text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-pink drop-shadow-lg relative z-10">✨ AI Assistant</h1>
-          <p className="m-0 text-sm opacity-80 font-medium tracking-widest relative z-10" style={{ color: 'rgba(0, 217, 255, 0.8)' }}>POWERED BY OPENAI GPT-4</p>
+        <div className="flex-1 min-w-0">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold m-0 mb-1 md:mb-2 text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-pink drop-shadow-lg relative z-10">✨ AI Assistant</h1>
+          <p className="m-0 text-xs sm:text-sm opacity-80 font-medium tracking-widest relative z-10" style={{ color: 'rgba(0, 217, 255, 0.8)' }}>POWERED BY OPENAI GPT-4</p>
         </div>
 
         {/* New Chat Button */}
         <button
           onClick={clearChat}
           disabled={messages.length === 0}
-          className="relative z-10 px-4 py-2 text-sm font-bold rounded-lg border border-neon-pink/50 text-neon-pink transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="relative z-10 px-3 py-2 sm:px-4 text-xs sm:text-sm font-bold rounded-lg border border-neon-pink/50 text-neon-pink transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed whitespace-nowrap"
           style={{
             backgroundColor: 'rgba(255, 0, 110, 0.1)',
           }}
@@ -137,23 +137,23 @@ export const Agent = () => {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-4 relative z-10" style={{ background: 'linear-gradient(to bottom, rgba(15, 22, 41, 0.5), rgba(19, 28, 62, 0.5), rgba(15, 22, 41, 0.5))' }}>
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 flex flex-col gap-2 sm:gap-3 md:gap-4 relative z-10" style={{ background: 'linear-gradient(to bottom, rgba(15, 22, 41, 0.5), rgba(19, 28, 62, 0.5), rgba(15, 22, 41, 0.5))' }}>
         {messages.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-full gap-4 animate-fade-scale">
-            <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-blue">👋 Welcome to AI Assistant</p>
-            <p className="text-base font-medium" style={{ color: 'rgba(0, 217, 255, 0.6)' }}>Ask me anything—I'm here to help!</p>
+          <div className="flex flex-col items-center justify-center h-full gap-3 sm:gap-4 animate-fade-scale px-3">
+            <p className="text-lg sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-neon-blue text-center">👋 Welcome to AI Assistant</p>
+            <p className="text-sm sm:text-base font-medium text-center" style={{ color: 'rgba(0, 217, 255, 0.6)' }}>Ask me anything—I'm here to help!</p>
           </div>
         ) : (
           messages.map((message, index) => (
             <div
               key={index}
-              className={`flex gap-3 max-w-[85%] animate-slide-in group ${
+              className={`flex gap-2 sm:gap-3 max-w-[90%] sm:max-w-[85%] animate-slide-in group ${
                 message.role === 'user' ? 'self-end' : 'self-start'
               }`}
               style={{ animationDelay: `${Math.min(index * 50, 150)}ms` }}
             >
               <div 
-                className={`px-5 py-3 rounded-lg max-w-full transition-all duration-300 relative border ${
+                className={`px-3 sm:px-5 py-2 sm:py-3 rounded-lg max-w-full transition-all duration-300 relative border text-xs sm:text-sm ${
                   message.role === 'user'
                     ? 'rounded-br-none shadow-neon-pink'
                     : 'rounded-bl-none shadow-neon-cyan'
@@ -169,21 +169,21 @@ export const Agent = () => {
                 }}
               >
                 <div className="absolute inset-0 rounded-lg pointer-events-none group-hover:opacity-100" style={{ background: 'linear-gradient(to bottom right, rgba(255,255,255,0.05), transparent)', opacity: 0.05 }}></div>
-                <div className={`text-xs font-bold mb-1.5 opacity-80 uppercase tracking-widest flex items-center justify-between gap-2 ${
+                <div className={`text-[10px] sm:text-xs font-bold mb-1 sm:mb-1.5 opacity-80 uppercase tracking-widest flex items-center justify-between gap-1 sm:gap-2 ${
                   message.role === 'user' ? 'text-neon-pink' : 'text-neon-cyan'
                 }`}>
                   <span>{message.role === 'user' ? '👤 You' : '🤖 Assistant'}</span>
                   {message.role === 'assistant' && (
                     <button
                       onClick={() => copyMessage(message.content, index)}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity text-xs px-2 py-1 rounded hover:bg-white/10"
+                      className="opacity-100 sm:opacity-0 sm:group-hover:opacity-100 sm:transition-opacity text-[10px] sm:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded hover:bg-white/10"
                       title="Copy message"
                     >
-                      {copiedId === index ? '✓ Copied' : '📋'}
+                      {copiedId === index ? '✓' : '📋'}
                     </button>
                   )}
                 </div>
-                <div className="text-sm leading-relaxed whitespace-pre-wrap break-words relative z-10">
+                <div className="text-xs sm:text-sm leading-relaxed whitespace-pre-wrap break-words relative z-10">
                   {message.content}
                 </div>
               </div>
@@ -192,8 +192,8 @@ export const Agent = () => {
         )}
         
         {isLoading && (
-          <div className="flex gap-3 self-start max-w-[85%] animate-slide-in">
-            <div className="flex gap-2 px-5 py-3 rounded-lg border border-neon-cyan/30 shadow-neon-cyan rounded-bl-none" style={{ backgroundColor: 'rgba(19, 28, 62, 0.6)' }}>
+          <div className="flex gap-2 sm:gap-3 self-start max-w-[90%] sm:max-w-[85%] animate-slide-in">
+            <div className="flex gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-3 rounded-lg border border-neon-cyan/30 shadow-neon-cyan rounded-bl-none" style={{ backgroundColor: 'rgba(19, 28, 62, 0.6)' }}>
               <span className="w-3 h-3 rounded-full shadow-neon-cyan animate-bounce-typing opacity-70" style={{ background: 'rgb(0, 217, 255)' }}></span>
               <span className="w-3 h-3 rounded-full shadow-neon-cyan animate-bounce-typing opacity-70" style={{ background: 'rgb(0, 217, 255)', animationDelay: '0.2s' }}></span>
               <span className="w-3 h-3 rounded-full shadow-neon-cyan animate-bounce-typing opacity-70" style={{ background: 'rgb(0, 217, 255)', animationDelay: '0.4s' }}></span>
@@ -203,7 +203,7 @@ export const Agent = () => {
       </div>
 
       {/* Input */}
-      <div className="flex gap-3 px-6 py-5 border-t border-neon-cyan/20 relative z-10" style={{ backgroundColor: 'rgba(19, 28, 62, 0.6)', backdropFilter: 'blur(12px)' }}>
+      <div className="flex gap-2 sm:gap-3 px-3 sm:px-4 md:px-6 py-3 sm:py-4 md:py-5 border-t border-neon-cyan/20 relative z-10" style={{ backgroundColor: 'rgba(19, 28, 62, 0.6)', backdropFilter: 'blur(12px)' }}>
         <input
           type="text"
           value={input}
@@ -212,7 +212,7 @@ export const Agent = () => {
           placeholder="Type your message..."
           disabled={isLoading}
           autoFocus
-          className="flex-1 px-5 py-3 text-sm rounded-lg outline-none font-inherit transition-all duration-300"
+          className="flex-1 px-3 sm:px-4 md:px-5 py-2 sm:py-3 text-xs sm:text-sm md:text-base rounded-lg outline-none font-inherit transition-all duration-300"
           style={{
             backgroundColor: 'rgba(15, 22, 41, 0.5)',
             border: 'rgba(0, 217, 255, 0.3) 1px solid',
@@ -232,7 +232,7 @@ export const Agent = () => {
         <button 
           onClick={sendMessage} 
           disabled={isLoading || !input.trim()}
-          className="px-7 py-3 text-base font-bold rounded-lg cursor-pointer transition-all duration-300 min-w-[100px] relative overflow-hidden"
+          className="px-3 sm:px-5 md:px-7 py-2 sm:py-3 md:py-3 text-sm sm:text-base font-bold rounded-lg cursor-pointer transition-all duration-300 min-w-[40px] sm:min-w-[100px] relative overflow-hidden flex items-center justify-center"
           style={{
             backgroundColor: 'rgba(0, 217, 255, 0.2)',
             border: '1px solid rgba(0, 217, 255, 0.5)',
