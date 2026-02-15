@@ -5,9 +5,12 @@ interface Message {
   content: string;
 }
 
+// model can be changed, out of MVP scope, user can probably select from a few options in the future, but for now we will hardcode it to gpt-4o-mini which is the most cost effective one that can still handle complex conversations well
+const model= 'gpt-4o-mini';
+
 export const Agent = () => {
     const [messages, setMessages] = useState<Message[]>([])
-    const [input, setInput] = useState("")
+    const [input, setInput] = useState<string>("")
     const [isLoading, setIsLoading] = useState(false)
     const [copiedId, setCopiedId] = useState<number | null>(null)
 
@@ -51,7 +54,7 @@ export const Agent = () => {
           'Authorization': `Bearer ${import.meta.env.VITE_REACT_APP_OPENAI_API_KEY}`
         },
         body: JSON.stringify({
-          model: 'gpt-4o-mini',
+          model: model,
           messages: newMessages,
           temperature: 0.7,
           max_tokens: 500
