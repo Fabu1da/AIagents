@@ -111,19 +111,7 @@ Output will be in the `dist/` folder, ready to deploy.
 5. Add environment variable: `VITE_REACT_APP_OPENAI_API_KEY`
 6. Deploy
 
-## 📁 Project Structure
 
-```
-src/
-├── main.tsx              # Entry point
-├── App.tsx               # Root component with background effects
-├── App.css               # App styles
-├── index.css             # Global styles & Tailwind directives
-├── agent/
-│   ├── Agent.tsx         # Main chat component
-│   └── Agent.css         # Chat styles
-└── assets/               # Static assets
-```
 
 ## 🎨 Design System
 
